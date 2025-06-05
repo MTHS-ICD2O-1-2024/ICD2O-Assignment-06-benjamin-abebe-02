@@ -7,9 +7,9 @@
 "use strict"
 
 // defining my function for the button
-function getBibleVerse() {
-  const apiKey = "YOUR_API_KEY_HERE"
-  const bibleId = "de4e12af7f28f599-02"
+async function getBibleVerse() {
+  const apiKey = "ac9bf9be9a365d3bfec89c6837e17f1a"
+  const bibleId = "de4e12af7f28f599-02" // ESV Bible ID
   const verses = ["JHN.3.16", "PSA.23.1", "ROM.8.28", "MAT.6.33", "PHI.4.13"]
   const randomVerseId = verses[Math.floor(Math.random() * verses.length)]
 
@@ -19,13 +19,15 @@ function getBibleVerse() {
         "api-key": apiKey
       }
     })
-    const data = await ersponse.json()
+    const data = await response.json()
     const content = data.data.content
     const reference = data.data.reference
-    document.getElementById("verse").innerHTML = '<strong>${reference}:</strong><br>${content}'
-  } catch(error) {
+    document.getElementById("verse").innerHTML = `<strong>${reference}:</strong><br>${content}`
+  } catch (error) {
+    console.error("Error fetching verse:", error)
     document.getElementById("verse").innerText = "Oops! Could not load verse."
   }
-  // display the answer
-  document.getElementById("answer").innerHTML = "<p>The sum of squares of the first " + n + " number is: " + sum + " .</p>"; 
 }
+
+// Load one verse when the page first loads
+getBibleVerse()
