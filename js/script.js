@@ -9,7 +9,7 @@
 // defining my function for the button
 async function getBibleVerse() {
   const apiKey = "ac9bf9be9a365d3bfec89c6837e17f1a"
-  const bibleId = "de4e12af7f28f599-02" // ESV Bible ID
+  const bibleId = "de4e12af7f28f599-02" 
   const verses = ["JHN.3.16", "PSA.23.1", "ROM.8.28", "MAT.6.33", "PHI.4.13"]
   const randomVerseId = verses[Math.floor(Math.random() * verses.length)]
 
